@@ -1,9 +1,13 @@
 library(rMVP)
+
+#generate kinship and PCs:
+MVP.Data(fileVCF="../input/Genotype/MADP_imputed.vcf", fileKin=TRUE, filePC=TRUE, pcs.keep=3, out="../input/Genotype/MADP")
+
 phenotype1<-read.csv("../input/Phenotypes.csv",head=TRUE)
-genotype<-attach.big.matrix("../input/Genotype/SAP.geno.desc")
-map<-read.table("../input/Genotype/SAP.geno.map", head = TRUE)
-kinship<-attach.big.matrix("../input/Genotype/SAP.kin.desc")
-covariates_PC<-bigmemory::as.matrix(attach.big.matrix("../input/Genotype/SAP.pc.desc"))
+genotype<-attach.big.matrix("../input/Genotype/MADP.geno.desc")
+map<-read.table("../input/Genotype/MADP.geno.map", head = TRUE)
+kinship<-attach.big.matrix("../input/Genotype/MADP.kin.desc")
+covariates_PC<-bigmemory::as.matrix(attach.big.matrix("../input/Genotype/MADP.pc.desc"))
 
 #Run a single GWAS
 phenotype2<-phenotype1[1:2]
